@@ -16,7 +16,7 @@ function FoxPictures({foxImages,setFoxImages}) {
       .get("https://cors-anywhere.herokuapp.com/https://randomfox.ca/floof/")
       .then(response => {
         console.log(response);
-        setFoxImages([...foxImages, response.data.image]);
+        setFoxImages([...foxImages, {imageurl: response.data.image}]);
       });
   };
 
@@ -28,7 +28,7 @@ function FoxPictures({foxImages,setFoxImages}) {
     </nav>
     <div className="grid">
         {foxImages.map(image => (
-          <FoxCard key={image} image={image} />
+          <FoxCard key={image.imageurl} image={image} />
         ))}
     </div>
     </>

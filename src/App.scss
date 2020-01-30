@@ -42,18 +42,27 @@
 }
 
 .grid {
-  display: grid;
-  width: 80%;
+  display: flex;
+  justify-content:space-evenly;
+  flex-wrap:wrap;
+  width: 100%;
   margin: 0 auto;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   .card {
+    border: 1px solid blue;
     width: 300px;
-    height: 300px;
+    
+    
     overflow: hidden;
-    background: white;
+    
     img {
-      width: auto;
-      height: 100%;
+      width: 300px;
+      height: auto;
     }
   }
+}
+
+.faved {
+  border-color:red;
+  background:red;
 }
