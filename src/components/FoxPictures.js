@@ -1,11 +1,13 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useContext } from "react";
 import axios from "axios";
 import useDarkMode from "../hooks/useDarkMode";
 import FoxCard from "./FoxCard";
+import FoxContext from "../contexts/FoxContext";
 
-function FoxPictures({foxImages,setFoxImages}) {
+function FoxPictures() {
 
   const [toggleMode] = useDarkMode("darkMode", false);
+  const { foxImages, setFoxImages, addFavFox } = useContext(FoxContext);
 
   useEffect(() => {
     getImage();
@@ -22,15 +24,15 @@ function FoxPictures({foxImages,setFoxImages}) {
 
   return (
     <>
-    <nav>
+      <nav>
         <button onClick={getImage}>New Fox</button>
         <button onClick={toggleMode}>Toggle Mode</button>
-    </nav>
-    <div className="grid">
+      </nav>
+      <div className="grid">
         {foxImages.map(image => (
-          <FoxCard key={image} image={image} />
+          <FoxCard key={image} image={image} addFavFox={addFavFox} />
         ))}
-    </div>
+      </div>
     </>
   );
 }

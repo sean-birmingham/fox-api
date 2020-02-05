@@ -45,15 +45,18 @@
   display: grid;
   width: 80%;
   margin: 0 auto;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   .card {
-    width: 300px;
-    height: 300px;
-    overflow: hidden;
     background: white;
-    img {
-      width: auto;
-      height: 100%;
+    span {
+      display: block;
+      width: 300px;
+      height: 300px;
+      overflow: hidden;
+      img {
+        width: auto;
+        height: 100%;
+      }
     }
   }
 }
